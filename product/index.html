@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>title</title>
+  <link rel="stylesheet" href="shared/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="shared/js/write.js"></script>
+  <script src="shared/js/run.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="contact-box">
+      <h4 class="content-ttl">お問い合わせ</h4>
+      <div class="border-twotone"></div>
+      <p class="contact-by fadeIn">電話でお問い合わせ</p>
+      <div class="tel-banner fadeIn">
+        <div class="phone-number">
+          <img src="shared/img/MINIQUE_LP_SP_assets/tel.png" alt="tel">
+          <a href="tel:0354366455"><span>03-5436-6455</span></a>
+        </div>
+      </div>
+      <p class="contact-by fadeIn">メールでお問い合わせ</p>
+      <div class="contact-form">
+
+
+
+
+<!-- inputのclass
+      defは確認画面で非表示にする為の指定
+      fmはフォームの部品である印 -->
+
+        <form id="form" class="fm-table">
+          <div class="fm-table">
+            <div class="fm-radio">
+              <p><label for="porpose_a"><input type="radio" name="お問い合わせ内容" id="porpose_a" value="掲載を申し込む">掲載を申し込み<span class="fm-radio-border"></span></label></p>
+              <p><label for="porpose_b"><input type="radio" name="お問い合わせ内容" id="porpose_b" value="詳細を聞きたい">詳細を聞きたい<span class="fm-radio-border"></span></label></p>
+            </div>
+            <div class="info-border"></div>
+            <dl class="fm-tr">
+              <dt class="fm-th">会社名<span class="required-txt">必須</span></dt>
+              <dd class="fm-td">
+                <input name="会社名" type="text" class="def fm"　id="textForm" >
+              </dd>
+            </dl>
+            <div class="info-border"></div>
+            <dl class="fm-tr">
+              <dt class="fm-th">お名前<span class="required-txt">必須</span></dt>
+              <dd class="fm-td">
+                <input name="お名前" type="text" class="def fm">
+              </dd>
+            </dl>
+            <div class="info-border"></div>
+            <dl class="fm-tr">
+              <dt class="fm-th">メールアドレス<span class="required-txt">必須</span></dt>
+              <dd class="fm-td">
+                <input name="メールアドレス" type="text" class="def fm">
+              </dd>
+            </dl>
+            <div class="info-border"></div>
+            <dl class="fm-tr">
+              <dt class="fm-th">電話番号</dt>
+              <dd class="fm-td">
+                <input name="電話番号" type="text" class="def fm">
+              </dd>
+            </dl>
+            <div class="info-border"></div>
+            <dl class="fm-tr">
+              <dt class="fm-th">サイトURL</dt>
+              <dd class="fm-td">
+                <input name="サイトURL" type="text" class="def fm">
+              </dd>
+            </dl>
+            <div class="info-border"></div>
+            <dl class="fm-tr last_fm-tr">
+              <dt class="fm-th">その他</dt>
+              <dd class="fm-td">
+                <textarea name="その他" type="text" class="def fm"></textarea>
+              </dd>
+            </dl>
+            <div class="info-border"></div>
+          </div>
+
+         <!--    <button type="submit" class="fm-btn">
+              入力内容を確認する
+            </button> -->
+            <div class="fm_button">
+              <input id="modal-open" value="入力内容を確認する" class="def fm-btn button-link check">
+              <input type="submit" id="send" class="fm-btn hide" value="この内容で送信">
+              <input type="button" id="back" class="return_btn hide" value="修正する"></p>
+              <!-- 訂正・送信ボタンはデフォルトで非表示になるよう、hideクラスへdisplay:none;を定義 -->
+            </div>
+        </form>
+
+
+
+
+<div id="modal-content">
+        <form action="<?php echo h($_SERVER['SCRIPT_NAME']); ?>" method="POST">
+          <div class="send-confirm-container">
+            <div class="contact-box">
+              <div class="contact-form">
+                <div class="fm-table">
+                  <div class="fm-radio">
+                    <h4 align="center">以下の内容で送信します。よろしいですか？</h4>
+                  </div>
+                  <div class="info-border"></div>
+                  <dl class="fm-tr">
+                    <dt class="fm-th">お問い合わせ内容<span class="required-txt">必須</span></dt>
+                    <dd class="fm-td">
+                      <input>
+                    </dd>
+                  </dl>
+                  <div class="info-border"></div>
+                  <dl class="fm-tr">
+                    <dt class="fm-th">会社名<span class="required-txt">必須</span></dt>
+                    <dd class="fm-td">
+                      <input readonly name="会社名" type="text" class="def fm" id="resultForm"" >
+                    </dd>
+                  </dl>
+                  <div class="info-border"></div>
+                  <dl class="fm-tr">
+                    <dt class="fm-th">お名前<span class="required-txt">必須</span></dt>
+                    <dd class="fm-td">
+                      <input name="お名前" type="text" id="str">
+                    </dd>
+                  </dl>
+                  <div class="info-border"></div>
+                  <dl class="fm-tr">
+                    <dt class="fm-th">メールアドレス<span class="required-txt">必須</span></dt>
+                    <dd class="fm-td">
+                      <input>
+                    </dd>
+                  </dl>
+                  <div class="info-border"></div>
+                  <dl class="fm-tr">
+                    <dt class="fm-th">電話番号</dt>
+                    <dd class="fm-td">
+                      <input>
+                    </dd>
+                  </dl>
+                  <div class="info-border"></div>
+                  <dl class="fm-tr">
+                    <dt class="fm-th">サイトURL</dt>
+                    <dd class="fm-td">
+                      <input>
+                    </dd>
+                  </dl>
+                  <div class="info-border"></div>
+                  <dl class="fm-tr">
+                    <dt class="fm-th">その他</dt>
+                    <dd class="fm-td">
+                      <input>
+                    </dd>
+                  </dl>
+                  <div class="info-border"></div>
+                  <p style="display: none;"><?php echo confirmOutput($_POST);//入力内容を表示?></p>
+                  <p align="center"><input type="hidden" name="mail_set" value="confirm_submit">
+                  <input type="hidden" name="httpReferer" value="<?php echo h($_SERVER['HTTP_REFERER']);?>">
+                  <input type="submit" class="fm-btn" value="この内容で送信">
+                  <input type="button" class="return_btn" value="修正する" onClick="history.back()"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+      </div>
+
+
+
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

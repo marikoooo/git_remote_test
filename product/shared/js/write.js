@@ -1,0 +1,1 @@
+var button=document.getElementById("modal-open");button.addEventListener("click",function(e){e.preventDefault();var t=document.getElementById("textForm").value;console.log("testForm"),document.getElementById("resultForm").value=t});
